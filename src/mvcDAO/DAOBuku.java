@@ -93,10 +93,59 @@ public class DAOBuku implements IDAOBuku{
         }
     }
     
+    @Override
+    public void update(Buku book) {
+        PreparedStatement statement = null;
+        try {
+            statement = con.prepareStatement(strUpdate);
+            statement.setString(1, book.getJudul());
+            statement.setString(2, book.getPenulis());
+            statement.setString(3, book.getPenerbit());
+            statement.setInt(4, book.getTahun());
+            statement.setString(5, book.getIdBuku());
+            statement.execute();
+        } catch (SQLException e) {
+            System.out.println("Gagal membuat update");
+        }
+        finally{
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                System.out.println("Gagal membuat update");
+            }
+        }
+    }
+    
+    @Override
+    public List<Buku> getAllByName(String judul) {
+        List<Buku> lstBuku = null;
+        try{
+            lstBuku = new ArrayList<Buku>();
+            PreparedStatement st = con.prepareStatement(strSearch);
+            st.setString(1, "%"+judul+"%");
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {                
+                Buku book = new Buku();
+                book.setIdBuku(rs.getString("ID_BUKU"));
+                book.setJudul(rs.getString("TITLE"));
+                book.setPenulis(rs.getString("AUTHOR"));
+                book.setPenerbit(rs.getString("PUBLISHER"));
+                book.setTahun(rs.getInt("YEAR"));
+                lstBuku.add(book);
+            }
+        }
+        catch(SQLException e){
+            System.out.println("error"+e);
+        }
+        return lstBuku;
+    }
+    
     Connection con;
     //SQL query
     String strRead  = "select ID_BUKU, TITLE, AUTHOR, PUBLISHER, YEAR from buku;";
     String strInsert = "insert into buku (ID_BUKU, TITLE, AUTHOR, PUBLISHER, YEAR) values (?,?,?,?,?);";
+    String strUpdate = "update buku set TITLE=?, AUTHOR=?, PUBLISHER=?, YEAR=? where ID_BUKU=? ;";
     String strDelete = "delete from buku where ID_BUKU = ?;";
+    String strSearch = "select * from buku where TITLE like ?;";
     
 }

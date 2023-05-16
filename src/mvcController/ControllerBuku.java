@@ -60,11 +60,30 @@ public class ControllerBuku {
         frmBuku.gettxtTahun().setText(lstBuku.get(row).getTahun().toString());
     }
     
+    public void update(){
+        Buku book = new Buku();
+        
+        book.setJudul(frmBuku.gettxtJudul().getText());
+        book.setPenulis(frmBuku.gettxtPenulis().getText());
+        book.setPenerbit(frmBuku.gettxtPenerbit().getText());
+        book.setTahun(Integer.parseInt(frmBuku.gettxtTahun().getText()));
+        book.setIdBuku(frmBuku.gettxtIdBuku().getText());
+        iBuku.update(book);
+        //JOptionPane.showConfirmDialog(null, "Yakin ingin menambahkan?");
+        JOptionPane.showMessageDialog(null, "Update Berhasil");
+    }
+    
     public  void delete(){
         Buku book = new Buku();
         iBuku.delete(frmBuku.gettxtIdBuku().getText());
         //JOptionPane.showConfirmDialog(null, "Yakin ingin menambahkan?");
         JOptionPane.showMessageDialog(null, "Delete Berhasil");
+    }
+    
+    public void search(){
+        lstBuku = iBuku.getAllByName(frmBuku.gettxtCariNama().getText());
+        TabelModelBuku tabelBuku = new TabelModelBuku(lstBuku);
+        frmBuku.getTabelData().setModel(tabelBuku);
     }
     
     FormBuku frmBuku;

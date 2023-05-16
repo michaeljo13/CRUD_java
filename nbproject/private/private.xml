@@ -6,11 +6,11 @@
             <file>file:/C:/Users/micha/OneDrive/Documents/NetBeansProjects/coba_aplikasi_CRUD/src/mvcView/Main.java</file>
             <file>file:/C:/Users/micha/OneDrive/Documents/NetBeansProjects/coba_aplikasi_CRUD/src/mvcView/FormBuku.java</file>
             <file>file:/C:/Users/micha/OneDrive/Documents/NetBeansProjects/coba_aplikasi_CRUD/src/mvcModel/TabelModelBuku.java</file>
-            <file>file:/C:/Users/micha/OneDrive/Documents/NetBeansProjects/coba_aplikasi_CRUD/src/mvcDAO/IDAOBuku.java</file>
+            <file>file:/C:/Users/micha/OneDrive/Documents/NetBeansProjects/coba_aplikasi_CRUD/src/mvcModel/TabelModelHistoryPeminjaman.java</file>
             <file>file:/C:/Users/micha/OneDrive/Documents/NetBeansProjects/coba_aplikasi_CRUD/src/mvcModel/Buku.java</file>
             <file>file:/C:/Users/micha/OneDrive/Documents/NetBeansProjects/coba_aplikasi_CRUD/src/mvcKoneksi/KoneksiDB.java</file>
-            <file>file:/C:/Users/micha/OneDrive/Documents/NetBeansProjects/coba_aplikasi_CRUD/src/mvcController/ControllerBuku.java</file>
-            <file>file:/C:/Users/micha/OneDrive/Documents/NetBeansProjects/coba_aplikasi_CRUD/src/mvcDAO/DAOBuku.java</file>
+            <file>file:/C:/Users/micha/OneDrive/Documents/NetBeansProjects/coba_aplikasi_CRUD/src/mvcModel/HistoryPeminjaman.java</file>
+            <file>file:/C:/Users/micha/OneDrive/Documents/NetBeansProjects/coba_aplikasi_CRUD/src/mvcView/FormHistoryPeminjaman.java</file>
         </group>
     </open-files>
 </project-private>

@@ -17,6 +17,12 @@ public interface IDAOBuku {
     //insert data
     public void insert(Buku book);
     
+    //update data
+    public void update(Buku book);
+    
     //delete data
     public void delete(String idBuku);
+    
+    //search data
+    public List<Buku> getAllByName(String judul);
 }

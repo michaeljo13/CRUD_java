@@ -48,7 +48,7 @@ public class FormBuku extends javax.swing.JFrame {
         txtPenerbit = new javax.swing.JTextField();
         txtTahun = new javax.swing.JTextField();
         txtPencarian = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        btnCari = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDataBuku = new javax.swing.JTable();
         btnEdit = new javax.swing.JButton();
@@ -91,7 +91,12 @@ public class FormBuku extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Cari");
+        btnCari.setText("Cari");
+        btnCari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCariActionPerformed(evt);
+            }
+        });
 
         tblDataBuku.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -181,7 +186,7 @@ public class FormBuku extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPencarian, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(128, 128, 128))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,7 +207,7 @@ public class FormBuku extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPencarian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(btnCari))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -265,7 +270,9 @@ public class FormBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSimpanActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        // TODO add your handling code here:
+        ctBuku.update();
+        ctBuku.isiTable();
+        ctBuku.reset();
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void tblDataBukuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDataBukuMouseClicked
@@ -276,6 +283,11 @@ public class FormBuku extends javax.swing.JFrame {
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         ctBuku.reset();
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
+        ctBuku.search();
+        ctBuku.reset();
+    }//GEN-LAST:event_btnCariActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,11 +325,11 @@ public class FormBuku extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCari;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSimpan;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -359,5 +371,9 @@ public class FormBuku extends javax.swing.JFrame {
     
     public JTextField gettxtTahun(){
         return txtTahun;
+    }
+    
+    public JTextField gettxtCariNama(){
+        return txtPencarian;
     }
 }
