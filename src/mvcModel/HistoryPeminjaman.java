@@ -13,6 +13,20 @@ import java.util.Date;
 public class HistoryPeminjaman {
 
     /**
+     * @return the idHistory
+     */
+    public String getIdHistory() {
+        return idHistory;
+    }
+
+    /**
+     * @param idHistory the idHistory to set
+     */
+    public void setIdHistory(String idHistory) {
+        this.idHistory = idHistory;
+    }
+
+    /**
      * @return the idAdmin
      */
     public String getIdAdmin() {
@@ -95,6 +109,8 @@ public class HistoryPeminjaman {
     public void setTgl_pengembalian(Date tgl_pengembalian) {
         this.tgl_pengembalian = tgl_pengembalian;
     }
+    
+    private String idHistory;
     private String idAdmin;
     private String idBuku;
     private String judul;

@@ -24,23 +24,25 @@ public class TabelModelHistoryPeminjaman extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return 7;
     }
     
     @Override
     public String getColumnName(int column){
         switch (column) {
             case 0:
-                return "ID Admin";
+                return "ID History";
             case 1:
-                return "ID Buku";
+                return "ID Admin";
             case 2:
-                return "Judul";
+                return "ID Buku";
             case 3:
-                return "Tanggal Peminjaman";
+                return "Judul";
             case 4:
-                return "Nama Peminjam";
+                return "Tanggal Peminjaman";
             case 5:
+                return "Nama Peminjam";
+            case 6:
                 return "Tanggal Pengembalian";
             default:
                 return null;
@@ -51,16 +53,18 @@ public class TabelModelHistoryPeminjaman extends AbstractTableModel{
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return lstHistory.get(rowIndex).getIdAdmin();
+                return lstHistory.get(rowIndex).getIdHistory();
             case 1:
-                return lstHistory.get(rowIndex).getIdBuku();
+                return lstHistory.get(rowIndex).getIdAdmin();
             case 2:
-                return lstHistory.get(rowIndex).getJudul();
+                return lstHistory.get(rowIndex).getIdBuku();
             case 3:
-                return lstHistory.get(rowIndex).getTgl_peminjaman();
+                return lstHistory.get(rowIndex).getJudul();
             case 4:
-                return lstHistory.get(rowIndex).getNama_peminjam();
+                return lstHistory.get(rowIndex).getTgl_peminjaman();
             case 5:
+                return lstHistory.get(rowIndex).getNama_peminjam();
+            case 6:
                 return lstHistory.get(rowIndex).getTgl_pengembalian();
             default:
                 return null;

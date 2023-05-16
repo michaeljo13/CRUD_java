@@ -4,6 +4,10 @@
  */
 package mvcView;
 
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import mvcController.ControllerHistory;
+
 /**
  *
  * @author micha
@@ -15,6 +19,8 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
      */
     public FormHistoryPeminjaman() {
         initComponents();
+        ctHistory = new ControllerHistory(this);
+        ctHistory.isiTable();
     }
 
     /**
@@ -41,7 +47,7 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
         txtTglPinjam = new javax.swing.JTextField();
         txtTglPengembalian = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblDataHistory = new javax.swing.JTable();
         btnSimpanDiHistory = new javax.swing.JButton();
         btnEditDiHistory = new javax.swing.JButton();
         btnResetDiHistory = new javax.swing.JButton();
@@ -49,6 +55,8 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtPencarianDiHistory = new javax.swing.JTextField();
         btnCariDiHistory = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        txtIdHistory = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,44 +80,84 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblDataHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tblDataHistory.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDataHistoryMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblDataHistory);
 
         btnSimpanDiHistory.setText("Simpan");
+        btnSimpanDiHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimpanDiHistoryActionPerformed(evt);
+            }
+        });
 
         btnEditDiHistory.setText("Edit");
+        btnEditDiHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditDiHistoryActionPerformed(evt);
+            }
+        });
 
         btnResetDiHistory.setText("Reset");
+        btnResetDiHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetDiHistoryActionPerformed(evt);
+            }
+        });
 
         btnHapusDiHistory.setText("Hapus");
+        btnHapusDiHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusDiHistoryActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Search");
 
         btnCariDiHistory.setText("Cari");
+        btnCariDiHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCariDiHistoryActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("ID History");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(421, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(335, 335, 335))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPencarianDiHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCariDiHistory)
+                        .addGap(34, 34, 34))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(78, 78, 78)
-                            .addComponent(txtIdAdminDiHistory))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel3)
                             .addGap(87, 87, 87)
@@ -138,28 +186,28 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnResetDiHistory)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnHapusDiHistory)))))
-                .addContainerGap(33, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(335, 335, 335))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPencarianDiHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCariDiHistory)
-                        .addGap(34, 34, 34))))
+                                .addComponent(btnHapusDiHistory)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel9))
+                            .addGap(75, 75, 75)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtIdAdminDiHistory)
+                                .addComponent(txtIdHistory))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jLabel1)
-                .addGap(62, 62, 62)
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtIdHistory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtIdAdminDiHistory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -196,7 +244,7 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
                     .addComponent(btnCariDiHistory))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -217,6 +265,38 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
     private void txtNamaPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaPeminjamActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNamaPeminjamActionPerformed
+
+    private void btnHapusDiHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusDiHistoryActionPerformed
+        ctHistory.delete();
+        ctHistory.isiTable();
+        ctHistory.reset();
+    }//GEN-LAST:event_btnHapusDiHistoryActionPerformed
+
+    private void btnSimpanDiHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanDiHistoryActionPerformed
+        ctHistory.insert();
+        ctHistory.isiTable();
+        ctHistory.reset();
+    }//GEN-LAST:event_btnSimpanDiHistoryActionPerformed
+
+    private void btnEditDiHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditDiHistoryActionPerformed
+        ctHistory.update();
+        ctHistory.isiTable();
+        ctHistory.reset();
+    }//GEN-LAST:event_btnEditDiHistoryActionPerformed
+
+    private void tblDataHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDataHistoryMouseClicked
+        int row = tblDataHistory.getSelectedRow();
+        ctHistory.isiField(row);
+    }//GEN-LAST:event_tblDataHistoryMouseClicked
+
+    private void btnResetDiHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetDiHistoryActionPerformed
+        ctHistory.reset();
+    }//GEN-LAST:event_btnResetDiHistoryActionPerformed
+
+    private void btnCariDiHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariDiHistoryActionPerformed
+        ctHistory.search();
+        ctHistory.reset();
+    }//GEN-LAST:event_btnCariDiHistoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,15 +348,54 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblDataHistory;
     private javax.swing.JTextField txtIdAdminDiHistory;
     private javax.swing.JTextField txtIdBukuDiHistory;
+    private javax.swing.JTextField txtIdHistory;
     private javax.swing.JTextField txtJudulDiHistory;
     private javax.swing.JTextField txtNamaPeminjam;
     private javax.swing.JTextField txtPencarianDiHistory;
     private javax.swing.JTextField txtTglPengembalian;
     private javax.swing.JTextField txtTglPinjam;
     // End of variables declaration//GEN-END:variables
+    ControllerHistory ctHistory;
+
+    public JTable getTabelData() {
+        return tblDataHistory;
+    }
+    
+    public JTextField gettxtIdHistory(){
+        return txtIdHistory;
+    }
+    
+    public JTextField gettxtIdAdmin(){
+        return txtIdAdminDiHistory;
+    }
+    
+    public JTextField gettxtIdBuku(){
+        return txtIdBukuDiHistory;
+    }
+    
+    public JTextField gettxtJudul(){
+        return txtJudulDiHistory;
+    }
+    
+    public JTextField gettxtTglPeminjaman(){
+        return txtTglPinjam;
+    }
+    
+    public JTextField gettxtNamaPeminjam(){
+        return txtNamaPeminjam;
+    }
+    
+    public JTextField gettxtTglPengembalian(){
+        return txtTglPengembalian;
+    }
+    
+    public JTextField gettxtCariNama(){
+        return txtPencarianDiHistory;
+    }
 }
