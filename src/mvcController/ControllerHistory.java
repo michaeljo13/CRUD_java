@@ -40,9 +40,9 @@ public class ControllerHistory {
         hist.setIdAdmin(frmHistory.gettxtIdAdmin().getText());
         hist.setIdBuku(frmHistory.gettxtIdBuku().getText());
         hist.setJudul(frmHistory.gettxtJudul().getText());
-        hist.setTgl_peminjaman(Date(frmHistory.gettxtTglPeminjaman().getText()));
+        hist.setTgl_peminjaman(frmHistory.gettxtTglPeminjaman().getDate());
         hist.setNama_peminjam(frmHistory.gettxtNamaPeminjam().getText());
-        hist.setTgl_pengembalian(Date(frmHistory.gettxtTglPengembalian().getText()));
+        hist.setTgl_pengembalian(frmHistory.gettxtTglPengembalian().getDate());
         iHistory.insert(hist);
         //JOptionPane.showConfirmDialog(null, "Yakin ingin menambahkan?");
         JOptionPane.showMessageDialog(null, "Input Berhasil");
@@ -55,9 +55,9 @@ public class ControllerHistory {
         frmHistory.gettxtIdAdmin().setText("");
         frmHistory.gettxtIdBuku().setText("");
         frmHistory.gettxtJudul().setText("");
-        frmHistory.gettxtTglPeminjaman().setText("");
+        frmHistory.gettxtTglPeminjaman().setDate(null);
         frmHistory.gettxtNamaPeminjam().setText("");
-        frmHistory.gettxtTglPengembalian().setText("");
+        frmHistory.gettxtTglPengembalian().setDate(null);
     }
     
     public void isiField(int row){
@@ -66,9 +66,9 @@ public class ControllerHistory {
         frmHistory.gettxtIdAdmin().setText(lstHistory.get(row).getIdAdmin());
         frmHistory.gettxtIdBuku().setText(lstHistory.get(row).getIdBuku());
         frmHistory.gettxtJudul().setText(lstHistory.get(row).getJudul());
-        frmHistory.gettxtTglPeminjaman().setText(lstHistory.get(row).getTgl_peminjaman().toString());
+        frmHistory.gettxtTglPeminjaman().setDate(lstHistory.get(row).getTgl_peminjaman());
         frmHistory.gettxtNamaPeminjam().setText(lstHistory.get(row).getNama_peminjam());
-        frmHistory.gettxtTglPengembalian().setText(lstHistory.get(row).getTgl_pengembalian().toString());
+        frmHistory.gettxtTglPengembalian().setDate(lstHistory.get(row).getTgl_pengembalian());
     }
     
     public void update(){
@@ -76,10 +76,10 @@ public class ControllerHistory {
         hist.setIdAdmin(frmHistory.gettxtIdAdmin().getText());
         hist.setIdBuku(frmHistory.gettxtIdBuku().getText());
         hist.setJudul(frmHistory.gettxtJudul().getText());
-        hist.setTgl_peminjaman(Date(frmHistory.gettxtTglPeminjaman().getText()));
+        hist.setTgl_peminjaman(frmHistory.gettxtTglPeminjaman().getDate());
         hist.setNama_peminjam(frmHistory.gettxtNamaPeminjam().getText());
-        hist.setTgl_pengembalian(Date(frmHistory.gettxtTglPengembalian().getText()));
-        hist.setIdHistory(frmHistory.gettxtIdBuku().getText());
+        hist.setTgl_pengembalian(frmHistory.gettxtTglPengembalian().getDate());
+        hist.setIdHistory(frmHistory.gettxtIdHistory().getText());
         iHistory.update(hist);
         //JOptionPane.showConfirmDialog(null, "Yakin ingin menambahkan?");
         JOptionPane.showMessageDialog(null, "Update Berhasil");
@@ -98,12 +98,12 @@ public class ControllerHistory {
         frmHistory.getTabelData().setModel(tabelBuku);
     }
     
-    private Date Date(String text) {
-        Date date = Calendar.getInstance().getTime();  
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
-        String strDate = dateFormat.format(date);
-        return null;
-    }
+//    private Date Date(String text) {
+//        Date date = Calendar.getInstance().getTime();  
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
+//        String strDate = dateFormat.format(date);
+//        return null;
+//    }
     
     FormHistoryPeminjaman frmHistory;
     IDAOHistoryPeminjaman iHistory;

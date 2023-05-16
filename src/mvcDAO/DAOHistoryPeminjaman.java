@@ -5,7 +5,8 @@
 package mvcDAO;
 
 import java.sql.Connection;
-import java.sql.Date;
+//import java.sql.Date;
+//import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -59,9 +60,9 @@ public class DAOHistoryPeminjaman implements IDAOHistoryPeminjaman{
             statement.setString(2, hist.getIdAdmin());
             statement.setString(3, hist.getIdBuku());
             statement.setString(4, hist.getJudul());
-            statement.setDate(5, (Date) hist.getTgl_peminjaman());
-            statement.setString(4, hist.getNama_peminjam());
-            statement.setDate(5, (Date) hist.getTgl_pengembalian());
+            statement.setDate(5, (new java.sql.Date(hist.getTgl_peminjaman().getTime())));
+            statement.setString(6, hist.getNama_peminjam());
+            statement.setDate(7, (new java.sql.Date(hist.getTgl_pengembalian().getTime())));
             statement.execute();
         } catch (SQLException e) {
             System.out.println("Gagal membuat input");
@@ -102,10 +103,11 @@ public class DAOHistoryPeminjaman implements IDAOHistoryPeminjaman{
             statement.setString(1, hist.getIdAdmin());
             statement.setString(2, hist.getIdBuku());
             statement.setString(3, hist.getJudul());
-            statement.setDate(4, (Date) hist.getTgl_peminjaman());
+            statement.setDate(4, (new java.sql.Date(hist.getTgl_peminjaman().getTime())));
             statement.setString(5, hist.getNama_peminjam());
-            statement.setDate(6, (Date) hist.getTgl_pengembalian());
+            statement.setDate(6, (new java.sql.Date(hist.getTgl_pengembalian().getTime())));
             statement.setString(7, hist.getIdHistory());
+            System.out.println("berhasil update");
             statement.execute();
         } catch (SQLException e) {
             System.out.println("Gagal membuat update");
