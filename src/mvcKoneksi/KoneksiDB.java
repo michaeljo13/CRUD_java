@@ -6,7 +6,8 @@ package mvcKoneksi;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import java.sql.DriverManager;
+//import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 /**
  *
  * @author micha
@@ -17,13 +18,18 @@ public class KoneksiDB {
     public static Connection getConnection()
     {
         if(con == null){
-            MysqlDataSource data = new MysqlDataSource();
-            data.setDatabaseName("db_library");
-            data.setUser("root");
-            data.setPassword("");
+//            MysqlDataSource data = new MysqlDataSource();
+//            data.setDatabaseName("db_library");
+//            data.setUser("root");
+//            data.setPassword("");
             
             try{
-                con = data.getConnection();
+//                con = data.getConnection();
+                String url = "jdbc:mysql://localhost:3306/db_library";
+                String user = "root";
+                String pass = "";
+                DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+                con = (Connection) DriverManager.getConnection(url, user, pass);
                 System.out.println("Berhasil terkoneksi");
             }catch(SQLException e)
             {
