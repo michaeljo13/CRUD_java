@@ -4,7 +4,8 @@
  */
 package mvcDAO;
 
-import mvcModel.Login;
+//import java.util.List;
+import mvcModel.ModelLogin;
 
 /**
  *
@@ -12,5 +13,5 @@ import mvcModel.Login;
  */
 public interface IDAOLogin {
     
-    public void getByUsername(Login USERNAME);
+    public void prosesLogin (ModelLogin mod_login);
 }

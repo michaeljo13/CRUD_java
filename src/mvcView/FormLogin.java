@@ -7,6 +7,9 @@ package mvcView;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import mvcController.ControllerLogin;
+import mvcDAO.DAOLogin;
+import mvcDAO.IDAOLogin;
+import mvcModel.ModelLogin;
 
 /**
  *
@@ -14,13 +17,17 @@ import mvcController.ControllerLogin;
  */
 public class FormLogin extends javax.swing.JFrame {
 
+    //private String USERNAME;
+    private ControllerLogin ctLogin;
+
     /**
      * Creates new form Login
      */
     public FormLogin() {
         initComponents();
-        btnLogin.requestFocus();
-        ctLogin = new ControllerLogin(this);
+        //btnLogin.requestFocus();
+        DAOLogin iLogin = new DAOLogin(this);
+        ctLogin = new ControllerLogin(iLogin);
     }
 
     /**
@@ -191,7 +198,10 @@ public class FormLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        ctLogin.login();
+        String username = txtUsername.getText();
+        String password = new String(txtPassword.getPassword());
+        
+        ctLogin.prosesLogin(username, password);
 //        FormBuku frmBuku = new FormBuku();
 //        frmBuku.setVisible(true);
 //        this.dispose();
@@ -248,7 +258,7 @@ public class FormLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
-    ControllerLogin ctLogin;
+    //ControllerLogin ctLogin;
     
     public JTextField gettxtUsername(){
         return txtUsername;
@@ -258,5 +268,5 @@ public class FormLogin extends javax.swing.JFrame {
         return txtPassword;
     }
     
-    public static boolean tutup = false;
+    //public static boolean tutup = false;
 }

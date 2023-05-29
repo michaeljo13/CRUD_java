@@ -8,21 +8,21 @@ package mvcModel;
  *
  * @author micha
  */
-public class Login {
+public class ModelLogin {
 
     /**
      * @return the ID_ADMIN
      */
-    public String getID_ADMIN() {
-        return ID_ADMIN;
-    }
+//    public String getID_ADMIN() {
+//        return ID_ADMIN;
+//    }
 
     /**
      * @param ID_ADMIN the ID_ADMIN to set
      */
-    public void setID_ADMIN(String ID_ADMIN) {
-        this.ID_ADMIN = ID_ADMIN;
-    }
+//    public void setID_ADMIN(String ID_ADMIN) {
+//        this.ID_ADMIN = ID_ADMIN;
+//    }
 
     /**
      * @return the USERNAME
@@ -51,7 +51,7 @@ public class Login {
     public void setPASSWORD(String PASSWORD) {
         this.PASSWORD = PASSWORD;
     }
-    private String ID_ADMIN;
+    //private String ID_ADMIN;
     private String USERNAME;
     private String PASSWORD;
 }
