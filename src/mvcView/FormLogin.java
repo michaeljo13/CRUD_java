@@ -26,8 +26,8 @@ public class FormLogin extends javax.swing.JFrame {
     public FormLogin() {
         initComponents();
         //btnLogin.requestFocus();
-        DAOLogin iLogin = new DAOLogin(this);
-        ctLogin = new ControllerLogin(iLogin);
+        DAOLogin daoLogin = new DAOLogin(this);
+        ctLogin = new ControllerLogin(daoLogin);
     }
 
     /**

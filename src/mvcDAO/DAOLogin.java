@@ -32,7 +32,7 @@ public class DAOLogin implements IDAOLogin {
 
     public DAOLogin(FormLogin frmLogin) {
         this.frmLogin = frmLogin;
-        System.out.println("asdfghj");
+        //System.out.println("asdfghj");
 
         con = KoneksiDB.getConnection();
     }
@@ -62,7 +62,7 @@ public class DAOLogin implements IDAOLogin {
                 FormBuku frmBuku = new FormBuku();
                 frmBuku.setVisible(true);
                 //FormLogin frmLogin = new FormLogin();
-                System.out.println(frmLogin);
+                //System.out.println(frmLogin);
                 frmLogin.dispose();
             } else {
                 // Login gagal
@@ -80,7 +80,7 @@ public class DAOLogin implements IDAOLogin {
                     stmt.close();
                 }
                 if (con != null) {
-                    con.close();
+                    //con.close();
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

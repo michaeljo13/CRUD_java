@@ -58,6 +58,8 @@ public class FormAnggota extends javax.swing.JFrame {
         btnCariDiAnggota = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDataAnggota = new javax.swing.JTable();
+        btnDaftarBuku = new javax.swing.JLabel();
+        btnHistoryPeminjaman = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -146,6 +148,26 @@ public class FormAnggota extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblDataAnggota);
 
+        btnDaftarBuku.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDaftarBuku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/open-book50.png"))); // NOI18N
+        btnDaftarBuku.setText("Daftar Buku");
+        btnDaftarBuku.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDaftarBuku.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDaftarBukuMouseClicked(evt);
+            }
+        });
+
+        btnHistoryPeminjaman.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnHistoryPeminjaman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/history50.png"))); // NOI18N
+        btnHistoryPeminjaman.setText("History Peminjaman");
+        btnHistoryPeminjaman.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHistoryPeminjaman.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnHistoryPeminjamanMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -154,7 +176,7 @@ public class FormAnggota extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -163,10 +185,20 @@ public class FormAnggota extends javax.swing.JFrame {
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(68, 68, 68)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNoHp, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIdAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtNoHp, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(45, 45, 45))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtIdAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnHistoryPeminjaman)
+                                            .addComponent(btnDaftarBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(47, 47, 47))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -201,7 +233,7 @@ public class FormAnggota extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,11 +243,13 @@ public class FormAnggota extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtIdAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDaftarBuku))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHistoryPeminjaman))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -238,7 +272,7 @@ public class FormAnggota extends javax.swing.JFrame {
                     .addComponent(btnResetDiAnggota)
                     .addComponent(btnEditDiAnggota)
                     .addComponent(btnSimpanDiAnggota))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPencarianDiAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCariDiAnggota)
@@ -294,6 +328,18 @@ public class FormAnggota extends javax.swing.JFrame {
         ctAnggota.reset();
     }//GEN-LAST:event_btnCariDiAnggotaActionPerformed
 
+    private void btnDaftarBukuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDaftarBukuMouseClicked
+        FormBuku frmBuku = new FormBuku();
+        frmBuku.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnDaftarBukuMouseClicked
+
+    private void btnHistoryPeminjamanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHistoryPeminjamanMouseClicked
+        FormHistoryPeminjaman frmHistoryPeminjaman = new FormHistoryPeminjaman();
+        frmHistoryPeminjaman.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnHistoryPeminjamanMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -331,8 +377,10 @@ public class FormAnggota extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCariDiAnggota;
+    private javax.swing.JLabel btnDaftarBuku;
     private javax.swing.JButton btnEditDiAnggota;
     private javax.swing.JButton btnHapusDiAnggota;
+    private javax.swing.JLabel btnHistoryPeminjaman;
     private javax.swing.JButton btnResetDiAnggota;
     private javax.swing.JButton btnSimpanDiAnggota;
     private com.toedter.calendar.JDateChooser clndrTglRegistrasi;
