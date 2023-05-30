@@ -74,7 +74,7 @@ public class ControllerBuku {
     }
     
     public  void delete(){
-        Buku book = new Buku();
+        //Buku book = new Buku();
         iBuku.delete(frmBuku.gettxtIdBuku().getText());
         //JOptionPane.showConfirmDialog(null, "Yakin ingin menambahkan?");
         JOptionPane.showMessageDialog(null, "Delete Berhasil");
