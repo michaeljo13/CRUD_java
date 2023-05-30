@@ -60,6 +60,7 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
         clndrTglPengembalian = new com.toedter.calendar.JDateChooser();
         btnDaftarBuku = new javax.swing.JLabel();
         btnDaftarAnggota = new javax.swing.JLabel();
+        btnLogOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -190,6 +191,15 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
             }
         });
 
+        btnLogOut.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnLogOut.setText("Log Out");
+        btnLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -213,21 +223,8 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 989, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 31, Short.MAX_VALUE)
-                                .addComponent(btnSimpanDiHistory)
-                                .addGap(27, 27, 27)
-                                .addComponent(btnEditDiHistory)
-                                .addGap(29, 29, 29)
-                                .addComponent(btnResetDiHistory)
-                                .addGap(32, 32, 32)
-                                .addComponent(btnHapusDiHistory)
-                                .addGap(98, 98, 98))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,7 +238,17 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
                                     .addComponent(txtIdHistory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtIdBukuDiHistory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtJudulDiHistory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(72, 72, 72)))
+                                .addGap(72, 72, 72))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 31, Short.MAX_VALUE)
+                                .addComponent(btnSimpanDiHistory)
+                                .addGap(27, 27, 27)
+                                .addComponent(btnEditDiHistory)
+                                .addGap(29, 29, 29)
+                                .addComponent(btnResetDiHistory)
+                                .addGap(32, 32, 32)
+                                .addComponent(btnHapusDiHistory)
+                                .addGap(98, 98, 98)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
@@ -255,7 +262,13 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(clndrTglPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtNamaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnDaftarBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnDaftarBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnLogOut)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 989, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -298,9 +311,11 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(txtPencarianDiHistory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCariDiHistory))
-                .addGap(45, 45, 45)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnLogOut)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -366,6 +381,12 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnDaftarAnggotaMouseClicked
 
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        FormLogin frmLogin = new FormLogin();
+        frmLogin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogOutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -408,6 +429,7 @@ public class FormHistoryPeminjaman extends javax.swing.JFrame {
     private javax.swing.JLabel btnDaftarBuku;
     private javax.swing.JButton btnEditDiHistory;
     private javax.swing.JButton btnHapusDiHistory;
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnResetDiHistory;
     private javax.swing.JButton btnSimpanDiHistory;
     private com.toedter.calendar.JDateChooser clndrTglPengembalian;
